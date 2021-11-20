@@ -16,7 +16,7 @@ class Message implements \IteratorAggregate, MessageInterface {
      */
     private $len;
 
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function __construct() {
         $this->_frames = new SplDoublyLinkedList;
         $this->len = 0;

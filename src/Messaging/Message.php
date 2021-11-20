@@ -31,6 +31,7 @@ class Message implements \IteratorAggregate, MessageInterface {
     /**
      * {@inheritdoc}
      */
+    #[ReturnTypeWillChange]
     public function count() {
         return count($this->_frames);
     }

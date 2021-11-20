@@ -1,9 +1,13 @@
 <?php
 namespace Ratchet\RFC6455\Messaging;
 
+use ReturnTypeWillChange;
+use SplDoublyLinkedList;
+use Traversable;
+
 class Message implements \IteratorAggregate, MessageInterface {
     /**
-     * @var \SplDoublyLinkedList
+     * @var SplDoublyLinkedList
      */
     private $_frames;
 
@@ -14,11 +18,13 @@ class Message implements \IteratorAggregate, MessageInterface {
 
     #[\ReturnTypeWillChange]
     public function __construct() {
-        $this->_frames = new \SplDoublyLinkedList;
+        $this->_frames = new SplDoublyLinkedList;
         $this->len = 0;
     }
 
-    public function getIterator() {
+    #[ReturnTypeWillChange]
+    public function getIterator(): SplDoublyLinkedList|Traversable|array
+    {
         return $this->_frames;
     }
 
